@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Data.SqlClient;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.Globalization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -27,7 +28,10 @@ namespace WebApplication6
         {
             Response.Redirect("start.aspx");
         }
-
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+            lblSelectedDate.Text = "You selected: " + Calendar1.SelectedDate.ToShortDateString();
+        }
         // SUBMIT BUTTON
         protected void Button3_Click(object sender, EventArgs e)
         {
