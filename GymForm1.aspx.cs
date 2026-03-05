@@ -42,7 +42,7 @@ namespace WebApplication6
                 double bmi = weight / ((height / 100) * (height / 100));
                 Label1.Text = bmi.ToString("0.00");
 
-                // ✅ Medical Conditions
+                
                 string medical = "";
                 foreach (ListItem item in CheckBoxList1.Items)
                 {
@@ -50,7 +50,7 @@ namespace WebApplication6
                         medical += item.Text + ", ";
                 }
 
-                // ✅ File Upload
+                // File Upload
                 string fileName = "";
 
                 if (FileUpload1.HasFile)
