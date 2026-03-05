@@ -27,8 +27,6 @@
 
         }
 
-    
-
         /* Main Glass Container */
         .container {
             width: 950px;
@@ -231,7 +229,7 @@
     <div class="form-group">
         <label>Membership Type:</label>
         <asp:DropDownList ID="DropDownList1" runat="server">
-            <asp:ListItem>Select Membership</asp:ListItem>
+            <asp:ListItem Value="-1">Select Membership</asp:ListItem>
             <asp:ListItem>Basic</asp:ListItem>
             <asp:ListItem>Premium</asp:ListItem>
             <asp:ListItem>VIP</asp:ListItem>
@@ -242,7 +240,7 @@
     <div class="form-group">
         <label>Duration (Months):</label>
         <asp:DropDownList ID="DropDownList2" runat="server">
-            <asp:ListItem>-- Select Duration --</asp:ListItem>
+            <asp:ListItem Value="-1">-- Select Duration --</asp:ListItem>
             <asp:ListItem Value="1">1 Month</asp:ListItem>
             <asp:ListItem Value="3">3 Months</asp:ListItem>
             <asp:ListItem Value="6">6 Months</asp:ListItem>
@@ -260,7 +258,7 @@
     <div class="form-group">
         <label>Personal Trainer Name:</label>
         <asp:DropDownList ID="DropDownList3" runat="server">
-            <asp:ListItem>-- Select Trainer --</asp:ListItem>
+            <asp:ListItem Value="-1">-- Select Trainer --</asp:ListItem>
             <asp:ListItem>John</asp:ListItem>
             <asp:ListItem>Sarah</asp:ListItem>
             <asp:ListItem>Shaym</asp:ListItem>
@@ -323,16 +321,20 @@
     </div>
 
     <!-- FILE UPLOAD -->
-    <div class="form-group">
-        <label>Upload ID Proof:</label>
-        <asp:FileUpload ID="FileUpload1" runat="server" />
-    </div>
+<div class="form-group">
+    <label>Upload ID Proof:</label>
+    <asp:FileUpload ID="FileUpload1" runat="server" />
+    <br />
+    <asp:Label ID="lblFileError" runat="server" ForeColor="Red" Font-Bold="true"></asp:Label>
+</div>
 
     <!-- BUTTONS -->
     <div class="bottom-buttons">
         <asp:Button ID="Button2" runat="server" Text="Back" CssClass="btn-orange" OnClick="Button2_Click" CausesValidation="False" />
         <asp:Button ID="Button3" runat="server" Text="Submit" CssClass="btn-orange" OnClick="Button3_Click" />
     </div>
+    <br />
+    <asp:Label ID="lblMessage" runat="server" Font-Bold="true"></asp:Label>
 
 </div>
 </div>

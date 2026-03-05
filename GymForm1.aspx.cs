@@ -36,7 +36,7 @@ namespace WebApplication6
 
             try
             {
-                // ✅ Calculate BMI
+                // Calculate BMI
                 double height = Convert.ToDouble(TextBox1.Text);
                 double weight = Convert.ToDouble(TextBox2.Text);
                 double bmi = weight / ((height / 100) * (height / 100));
@@ -53,6 +53,10 @@ namespace WebApplication6
                 // File Upload
                 string fileName = "";
 
+                // Clear previous error
+                lblFileError.Text = "";
+
+                // File Upload Validation
                 if (FileUpload1.HasFile)
                 {
                     string extension = System.IO.Path.GetExtension(FileUpload1.FileName).ToLower();
@@ -69,12 +73,12 @@ namespace WebApplication6
                     }
                     else
                     {
-                        Response.Write("<script>alert('Only jpg, jpeg, png, pdf allowed');</script>");
-                        return;
+                        lblFileError.Text = "Only jpg, jpeg, png, pdf files allowed.";
+                        return; // stop further processing
                     }
                 }
 
-                // ✅ Insert into Database
+                // Insert into Database
                 SqlCommand cmd = new SqlCommand(
                 "INSERT INTO Members " +
                 "(Name, Gender, Age, Mobile, Email, Address, MembershipType, Duration, TrainerRequired, TrainerName, MedicalConditions, Height, Weight, BMI, PaymentMode, JoiningDate) " +
@@ -101,13 +105,17 @@ namespace WebApplication6
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                Response.Write("<script>alert('Member Registered Successfully');</script>");
+                lblMessage.Text = "Member Registered Successfully!";
+                lblMessage.ForeColor = System.Drawing.Color.LightGreen;
 
                 ClearForm();
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
+               // Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
+
+                lblMessage.Text = "Error! "+ ex.Message;
+                lblMessage.ForeColor = System.Drawing.Color.Red;
             }
         }
 

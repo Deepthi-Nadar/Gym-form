@@ -320,7 +320,8 @@
                         </Columns>
                     </asp:GridView>
                 </div>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:GYM_REGISTERATION_FORMConnectionString %>" ProviderName="<%$ ConnectionStrings:GYM_REGISTERATION_FORMConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Members]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:GYM_REGISTERATION_FORMConnectionString %>" ProviderName="<%$ ConnectionStrings:GYM_REGISTERATION_FORMConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Members]" UpdateCommand="UPDATE Members SET Name=@Name, Gender=@Gender, Age=@Age, Mobile=@Mobile, Email=@Email, MembershipType=@MembershipType, Duration=@Duration, TrainerRequired=@TrainerRequired, TrainerName=@TrainerName, MedicalConditions=@MedicalConditions, Height=@Height, Weight=@Weight, BMI=@BMI, PaymentMode=@PaymentMode, JoiningDate=@JoiningDate WHERE MemberID=@MemberID"
+DeleteCommand="DELETE FROM Members WHERE MemberID=@MemberID"></asp:SqlDataSource>
 
             <div style="text-align: center; margin-top: 20px;">
                 <div class="bottom-buttons">
@@ -330,7 +331,7 @@
                 </div>
             </div>
         </div>
-
+</div>
     </form>
 </body>
 </html>
