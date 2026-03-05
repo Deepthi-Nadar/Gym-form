@@ -172,7 +172,7 @@
         <div class="nav-left">
             <img src="images/image-removebg-preview (1).png" class="logo-img" alt="Gym Logo" />
             <span class="gym-name">POWER GYM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-        &nbsp;<asp:Button ID="Button1" runat="server" Text="Members" CssClass="btn-orange" OnClick="Button1_Click" />
+        &nbsp;<asp:Button ID="Button1" runat="server" Text="Members" CssClass="btn-orange" OnClick="Button1_Click" CausesValidation="False"/>
         </div>
 
         <div class="nav-right">
@@ -330,7 +330,7 @@
 
     <!-- BUTTONS -->
     <div class="bottom-buttons">
-        <asp:Button ID="Button2" runat="server" Text="Back" CssClass="btn-orange" OnClick="Button2_Click" />
+        <asp:Button ID="Button2" runat="server" Text="Back" CssClass="btn-orange" OnClick="Button2_Click" CausesValidation="False" />
         <asp:Button ID="Button3" runat="server" Text="Submit" CssClass="btn-orange" OnClick="Button3_Click" />
     </div>
 
