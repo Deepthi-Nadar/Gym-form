@@ -37,19 +37,7 @@
         }
 
         /* Navbar */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 15px;
-            margin-bottom: 30px;
-            border-bottom: 2px solid orange;
-        }
 
-        .nav-left {
-            display: flex;
-            align-items: center;
-        }
 
         .logo-img {
             width: 60px;
@@ -59,15 +47,6 @@
             border: 2px solid orange;
         }
 
-        .gym-name {
-            font-size: 22px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .nav-right .btn-orange {
-            margin-left: 10px;
-        }
 
         /* Buttons */
         .btn-orange {
@@ -163,119 +142,109 @@
 
         /* ================= GRIDVIEW STYLING ================= */
 
-        asp\\:GridView {
-            width: 100%;
-        }
-
         /* Table */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            overflow: hidden;
-        }
+       table {
+           width: 100%;
+           border-collapse: collapse;
+           margin-top: 20px;
+           background: rgba(255, 255, 255, 0.05);
+           border-radius: 10px;
+           overflow: hidden;
+       }
 
-        /* Header */
 
-        th {
-            background: linear-gradient(45deg, orange, darkorange);
-            color: white;
-        }
+       .grid-style th {
+           background: linear-gradient(45deg, orange, darkorange) !important;
+           color: white !important;
+           padding: 12px;
+           text-align: center;
+           font-weight: bold;
+           font-size: 15px;
+       }
 
-        .grid-style th {
-            background: linear-gradient(45deg, orange, darkorange) !important;
-            color: white !important;
-            padding: 12px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 15px;
-        }
-
-        .grid-style {
-            min-width: 1600px;
-            background: rgba(0, 0, 0, 0.6); /* darker background */
-            border-radius: 10px;
-        }
+       .grid-style {
+           min-width: 1600px;
+           background: rgba(0, 0, 0, 0.6); /* darker background */
+           border-radius: 10px;
+       }
 
 
 
-        /* Rows */
-        td {
-            padding: 10px;
-            text-align: center;
-            color: white;
-            font-size: 14px;
-        }
+       /* Rows */
+       td {
+           padding: 10px;
+           text-align: center;
+           color: white;
+           font-size: 14px;
+       }
 
-        /* Alternating rows */
-        tr:nth-child(even) {
-            background: rgba(255, 255, 255, 0.08);
-        }
+       /* Alternating rows */
+       tr:nth-child(even) {
+           background: rgba(255, 255, 255, 0.08);
+       }
 
-        /* Hover effect */
-        tr:hover {
-            background: rgba(255, 165, 0, 0.2);
-            transition: 0.3s;
-        }
+       /* Hover effect */
+       tr:hover {
+           background: rgba(255, 165, 0, 0.2);
+           transition: 0.3s;
+       }
 
-        /* Select button */
-        input[type=submit] {
-            background: orange;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 20px;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+       /* Select button */
+       input[type=submit] {
+           background: orange;
+           border: none;
+           padding: 6px 12px;
+           border-radius: 20px;
+           color: white;
+           font-weight: bold;
+           cursor: pointer;
+           transition: 0.3s;
+       }
 
-            input[type=submit]:hover {
-                background: darkorange;
-                box-shadow: 0 0 10px orange;
-            }
+           input[type=submit]:hover {
+               background: darkorange;
+               box-shadow: 0 0 10px orange;
+           }
 
-        /* Paging */
-        table tr:last-child td {
-            background: rgba(0, 0, 0, 0.3);
-        }
+       /* Paging */
+       table tr:last-child td {
+           background: rgba(0, 0, 0, 0.3);
+       }
 
-        a {
-            color: orange;
-            font-weight: bold;
-            text-decoration: none;
-            margin: 0 5px;
-        }
+       a {
+           color: orange;
+           font-weight: bold;
+           text-decoration: none;
+           margin: 0 5px;
+       }
 
-            a:hover {
-                text-decoration: underline;
-            }
+           a:hover {
+               text-decoration: underline;
+           }
 
 
-        .grid-header {
-            background: linear-gradient(45deg, orange, darkorange);
-            color: white;
-            font-weight: bold;
-            text-align: center;
-        }
+       .grid-header {
+           background: linear-gradient(45deg, orange, darkorange);
+           color: white;
+           font-weight: bold;
+           text-align: center;
+       }
 
-        .grid-row {
-            background: rgba(255,255,255,0.05);
-            color: white;
-        }
+       .grid-row {
+           background: rgba(255,255,255,0.05);
+           color: white;
+       }
 
-        .grid-alt-row {
-            background: rgba(255,255,255,0.1);
-        }
+       .grid-alt-row {
+           background: rgba(255,255,255,0.1);
+       }
 
-        /* Scrollable Grid */
-        .grid-wrapper {
-            width: 100%;
-            overflow-x: auto;
-            margin-top: 20px;
-        }
+       /* Scrollable Grid */
+       .grid-wrapper {
+           width: 100%;
+           overflow-x: auto;
+           margin-top: 20px;
+       }
 
         /* Prevent table from shrinking */
     </style>

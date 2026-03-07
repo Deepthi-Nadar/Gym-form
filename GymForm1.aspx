@@ -36,7 +36,7 @@
             color: white;
         }
 
-        }
+        
 
         /* Navbar */
         .navbar {
@@ -308,8 +308,10 @@
                         ID="RequiredFieldValidator1"
                         runat="server"
                         ControlToValidate="rblPaymentMode"
-                        ErrorMessage="* Required"
-                        ForeColor="Red">
+                        ErrorMessage="Please select the payment mode"
+                        ForeColor="Red"
+                        EnableClientScript="true"
+                        Display="Dynamic">
                     </asp:RequiredFieldValidator>
                 </div>
 
