@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebApplication6
+namespace WebApplication7
 {
     public partial class start : System.Web.UI.Page
     {
@@ -16,7 +16,7 @@ namespace WebApplication6
 
         protected void Start_Click(object sender, EventArgs e)
         {
-            Response.Redirect("GymForm1.aspx");
+           Response.Redirect("GymForm1.aspx");
         }
     }
 }

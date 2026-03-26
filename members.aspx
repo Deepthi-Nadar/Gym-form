@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="members.aspx.cs" Inherits="WebApplication6.members" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="members.aspx.cs" Inherits="WebApplication7.members" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Gym Membership</title>
+        <title>Gym Membership</title>
 
     <style>
         body {

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GymForm1.aspx.cs" Inherits="WebApplication6.GymForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="GymForm1.aspx.cs" Inherits="WebApplication7.GymForm1" %>
 
 <!DOCTYPE html>
 
@@ -36,7 +36,7 @@
             color: white;
         }
 
-        
+
 
         /* Navbar */
         .navbar {
@@ -180,6 +180,18 @@
                 <div class="form-group">
                     <label>Member Name:</label>
                     <asp:TextBox ID="txtName" runat="server" />
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <asp:RequiredFieldValidator
+                        ID="RequiredFieldValidator2"
+                        runat="server"
+                        ControlToValidate="txtName"
+                        ErrorMessage="Please Enter Your Name"
+                        ForeColor="Red"
+                        EnableClientScript="true"
+                        Display="Dynamic">
+                    </asp:RequiredFieldValidator>
                 </div>
 
                 <!-- GENDER -->
@@ -195,6 +207,13 @@
                 <div class="form-group">
                     <label>Age:</label>
                     <asp:TextBox ID="txtAge" runat="server" />
+                    &nbsp;&nbsp;&nbsp;
+                   <asp:RequiredFieldValidator
+                       ID="rfvAge"
+                       runat="server"
+                       ControlToValidate="txtAge"
+                       ErrorMessage="Enter age"
+                       ForeColor="Red" />
                     <asp:RangeValidator ID="rvAge" runat="server"
                         ControlToValidate="txtAge"
                         MinimumValue="18"
@@ -202,18 +221,51 @@
                         Type="Integer"
                         ErrorMessage="Age must be between 18 and 60"
                         ForeColor="Red" />
+
                 </div>
 
                 <!-- MOBILE -->
                 <div class="form-group">
                     <label>Mobile:</label>
                     <asp:TextBox ID="txtMobile" runat="server" />
+                    &nbsp;&nbsp;
+                    <asp:RequiredFieldValidator
+                        ID="rfvMobile"
+                        runat="server"
+                        ControlToValidate="txtMobile"
+                        ErrorMessage="Enter mobile number"
+                        ForeColor="Red" />
+
+                    <asp:RegularExpressionValidator
+                        ID="revMobile"
+                        runat="server"
+                        ControlToValidate="txtMobile"
+                        ValidationExpression="^[6-9]\d{9}$"
+                        ErrorMessage="Enter valid 10-digit mobile number"
+                        ForeColor="Red" />
+
                 </div>
 
                 <!-- EMAIL -->
                 <div class="form-group">
                     <label>Email:</label>
                     <asp:TextBox ID="txtEmail" runat="server" TextMode="Email" />
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:RequiredFieldValidator
+                        ID="rfvEmail"
+                        runat="server"
+                        ControlToValidate="txtEmail"
+                        ErrorMessage="Enter email"
+                        ForeColor="Red" />
+
+                    &nbsp;<asp:RegularExpressionValidator
+                        ID="revEmail"
+                        runat="server"
+                        ControlToValidate="txtEmail"
+                        ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$"
+                        ErrorMessage="Invalid email format"
+                        ForeColor="Red" />
+
                 </div>
 
                 <!-- ADDRESS -->
@@ -228,23 +280,43 @@
                 <div class="form-group">
                     <label>Membership Type:</label>
                     <asp:DropDownList ID="DropDownList1" runat="server">
-                        <asp:ListItem Value="-1">Select Membership</asp:ListItem>
+                        <asp:ListItem Value="Not Selected">Select Membership</asp:ListItem>
                         <asp:ListItem>Basic</asp:ListItem>
                         <asp:ListItem>Premium</asp:ListItem>
                         <asp:ListItem>VIP</asp:ListItem>
                     </asp:DropDownList>
+                    &nbsp;
+                    <asp:RequiredFieldValidator
+                        ID="RequiredFieldValidator3"
+                        runat="server"
+                        ControlToValidate="DropDownList1"
+                        InitialValue="Not Selected"
+                        ErrorMessage="Please select membership"
+                        ForeColor="Red" />
+
                 </div>
 
                 <!-- DURATION -->
                 <div class="form-group">
                     <label>Duration (Months):</label>
                     <asp:DropDownList ID="DropDownList2" runat="server">
-                        <asp:ListItem Value="-1">-- Select Duration --</asp:ListItem>
+                        <asp:ListItem Value="-1">Select</asp:ListItem>
                         <asp:ListItem Value="1">1 Month</asp:ListItem>
                         <asp:ListItem Value="3">3 Months</asp:ListItem>
                         <asp:ListItem Value="6">6 Months</asp:ListItem>
                         <asp:ListItem Value="12">12 Months</asp:ListItem>
                     </asp:DropDownList>
+
+                    &nbsp;
+
+                    <asp:RequiredFieldValidator
+                        ID="RequiredFieldValidator4"
+                        runat="server"
+                        ControlToValidate="DropDownList2"
+                        InitialValue="-1"
+                        ErrorMessage="Select duration"
+                        ForeColor="Red" />
+
                 </div>
 
                 <!-- TRAINER REQUIRED -->
@@ -257,7 +329,7 @@
                 <div class="form-group">
                     <label>Personal Trainer Name:</label>
                     <asp:DropDownList ID="DropDownList3" runat="server">
-                        <asp:ListItem Value="-1">-- Select Trainer --</asp:ListItem>
+                        <asp:ListItem Value="Not Selected">-- Select Trainer --</asp:ListItem>
                         <asp:ListItem>John</asp:ListItem>
                         <asp:ListItem>Sarah</asp:ListItem>
                         <asp:ListItem>Shaym</asp:ListItem>
@@ -275,19 +347,45 @@
                         <asp:ListItem Text="Asthma" />
                         <asp:ListItem Text="None" />
                     </asp:CheckBoxList>
+                    <asp:CustomValidator
+                        ID="cvMedical"
+                        runat="server"
+                        ErrorMessage="Select at least one condition"
+                        ForeColor="Red"
+                        Display="Dynamic"
+                        OnServerValidate="ValidateMedicalConditions" />
                 </div>
 
                 <!-- HEIGHT -->
-                <div class="form-group">
+                <!--  <div class="form-group">
                     <label>Height (cm):</label>
                     <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                 </div>
 
-                <!-- WEIGHT -->
+                //weight
                 <div class="form-group">
                     <label>Weight (kg):</label>
                     <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                </div> -->
+
+
+
+
+                <div class="form-group">
+                    <label>Height (cm):</label>
+                    <asp:TextBox ID="txtHeight" runat="server"
+                        AutoPostBack="true"
+                        OnTextChanged="CalculateBMI"></asp:TextBox>
                 </div>
+
+                <div class="form-group">
+                    <label>Weight (kg):</label>
+                    <asp:TextBox ID="txtWeight" runat="server"
+                        AutoPostBack="true"
+                        OnTextChanged="CalculateBMI"></asp:TextBox>
+                </div>
+
+
 
                 <!-- BMI -->
                 <div class="form-group">
@@ -304,6 +402,9 @@
                         <asp:ListItem Value="UPI">UPI</asp:ListItem>
                     </asp:RadioButtonList>
 
+                    &nbsp;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                     <asp:RequiredFieldValidator
                         ID="RequiredFieldValidator1"
                         runat="server"
@@ -313,6 +414,8 @@
                         EnableClientScript="true"
                         Display="Dynamic">
                     </asp:RequiredFieldValidator>
+
+
                 </div>
 
                 <!-- JOINING DATE -->
@@ -329,15 +432,23 @@
                             <!-- Example: Show selected date -->
                             <asp:Label ID="lblSelectedDate" runat="server" Text=""></asp:Label>
                         </ContentTemplate>
+                        <Triggers>
+                            <asp:PostBackTrigger ControlID="Button3" />
+                        </Triggers>
                     </asp:UpdatePanel>
 
+
                 </div>
+
+
 
                 <!-- FILE UPLOAD -->
                 <div class="form-group">
                     <label>Upload ID Proof:</label>
                     <asp:FileUpload ID="FileUpload1" runat="server" />
                     <br />
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Label ID="lblFileError" runat="server" ForeColor="Red" Font-Bold="true"></asp:Label>
                 </div>
 
